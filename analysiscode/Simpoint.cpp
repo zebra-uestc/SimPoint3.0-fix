@@ -675,7 +675,16 @@ void Simpoint::savePostClusteringData() {
             Utilities::check(static_cast<bool>(output),
                     "Simpoint::savePostClusteringData(): could not open file " +
                                     name);
-            finalCenters[runNumber]->write(output);
+            // finalCenters[runNumber]->write(output);
+            auto& centerData = finalCenters[runNumber];
+            unsigned nr = centerData->numRows();
+            for (unsigned int row = 0; row < nr; row++) {
+                auto& dataPoint = (*centerData)[row];
+                for (unsigned int i = 0; i < dataPoint.size(); i++) {
+                    output << dataPoint[i] << " ";
+                }
+                output << endl;
+            }
             output.close();
         }
 
