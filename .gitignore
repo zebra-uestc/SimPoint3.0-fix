@@ -1,0 +1,6 @@
+.cache
+compile_commands.json
+*.o
+*.d
+analysiscode/simpoint
+bin/simpoint
