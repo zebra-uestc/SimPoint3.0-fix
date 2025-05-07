@@ -437,6 +437,7 @@ class SimpointOptions {
         string saveVectorWeightsName;    // and simpoints
         string saveSimpointsName;
         string savePreprocessDataName;   // save dimension reduced data
+        string saveBestRunBICScoreName;  // save the best run BIC score
 
         string saveInitialCentersName;   // file names for saving initial
         string saveFinalCentersName;     // centers, final centers, vectors

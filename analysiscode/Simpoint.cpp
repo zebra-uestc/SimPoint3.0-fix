@@ -627,6 +627,17 @@ void Simpoint::savePostClusteringData() {
     Logger::log() << "  For the BIC threshold, the best clustering was run " 
         << (bestRun+1) << " (k = " << options.kValues[bestRun] << ")\n";
 
+    if(options.saveBestRunBICScoreName != ""){
+        Logger::log() << "  Saving best run BIC Score to text file '" 
+            << options.saveBestRunBICScoreName << "'\n";
+        ofstream output(options.saveBestRunBICScoreName.c_str(),ios_base::app);
+        Utilities::check(static_cast<bool>(output), "Simpoint::savePostClusteringData(): could not open file " +
+                                options.saveBestRunBICScoreName);
+
+        output << bicScores[bestRun] << std::endl;
+        output.close();
+    }
+
     vector<int> labels(wholeDataset->numRows(), 0);
     Datapoint distsToCenters(wholeDataset->numRows());
 

@@ -170,6 +170,9 @@ SimpointOptions::SimpointOptions() {
 
     cmdLineParser.addOption(new StringCmdLineOption("savePreprocessData", "file",
                 "Saves to the given file the reduced-dimensional data.", &savePreprocessDataName));
+    
+    cmdLineParser.addOption(new StringCmdLineOption("saveBestRunBICScore", "file",
+                    "Saves to the given file the best run BIC score.", &saveBestRunBICScoreName));
 
     cmdLineParser.addOption(new StringCmdLineOption("saveLabels", "file",
             "Saves to the given file the label and distance to nearest centroid "
