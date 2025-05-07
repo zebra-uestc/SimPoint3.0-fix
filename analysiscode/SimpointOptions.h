@@ -436,6 +436,7 @@ class SimpointOptions {
         string saveSimpointWeightsName;  // simpoint weights, vector weights,
         string saveVectorWeightsName;    // and simpoints
         string saveSimpointsName;
+        string savePreprocessDataName;   // save dimension reduced data
 
         string saveInitialCentersName;   // file names for saving initial
         string saveFinalCentersName;     // centers, final centers, vectors

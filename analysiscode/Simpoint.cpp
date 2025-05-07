@@ -495,6 +495,25 @@ void Simpoint::savePreClusteringData() {
         }
         output.close();
     }
+
+    if (options.savePreprocessDataName != "") {
+        Logger::log() << "  Saving preprocessed vector data to text file '" 
+            << options.savePreprocessDataName << "'\n";
+        ofstream output(options.savePreprocessDataName.c_str());
+        Utilities::check(static_cast<bool>(output), "Simpoint::savePreClusteringData(): could not open file " +
+                                options.savePreprocessDataName);
+
+        unsigned int nr = wholeDataset->numRows();
+        for(unsigned int row = 0; row < nr; row++) {
+            auto& dataPoint = (*wholeDataset)[row];
+            for(unsigned int i = 0; i < dataPoint.size(); i++) {
+                output << dataPoint[i] << " ";
+            }
+            output << endl;
+        }
+
+        output.close();
+    }
 }
 
 int Simpoint::findBestRun() {

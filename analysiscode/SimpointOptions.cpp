@@ -168,6 +168,9 @@ SimpointOptions::SimpointOptions() {
             "center. Default is " + DEFAULT_KMEANS_INIT_TYPE + ".",
             &kMeansInitType, DEFAULT_KMEANS_INIT_TYPE, options));
 
+    cmdLineParser.addOption(new StringCmdLineOption("savePreprocessData", "file",
+                "Saves to the given file the reduced-dimensional data.", &savePreprocessDataName));
+
     cmdLineParser.addOption(new StringCmdLineOption("saveLabels", "file",
             "Saves to the given file the label and distance to nearest centroid "
             "for each clustered vector.", &saveLabelsName));
